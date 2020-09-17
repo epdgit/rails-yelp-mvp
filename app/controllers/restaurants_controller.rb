@@ -9,9 +9,12 @@ class RestaurantsController < ApplicationController
   end
 
   def new
+    @restaurant = Restaurant.new
+    @category = ["chinese", "italian", "japanese", "french", "belgian"]
   end
 
   def create
+
   end
 
    

@@ -1,0 +1,15 @@
+<h1>CREATE A RESTAURANT</h1>
+
+  <p>
+    <%= simple_form_for [ @restaurant ] do |f| %>
+      <%= f.input :name %>
+      <%= f.input :address %>
+      <%= f.input :phone_number %>
+      <%= f.input :category, collection: @category %>
+
+      <%= f.submit "Create", class: "btn btn-primary" %>
+    <% end %>
+  </p>
+
+  
+<%= link_to "Back to list", restaurants_path %>

@@ -1,4 +1,57 @@
+<i class="fa fa-star-o" aria-hidden="true"></i>
+
 <h1>Name: <%= @restaurant.name %></h1>
 <p>Category: <%= @restaurant.category %></p>
 <p>Address: <%= @restaurant.address %></p>
-<p>Reviews: <%= restaurant.reviews %></p>
+<p>Reviews:</p> 
+<ul class="list-group">
+  <% @restaurant.reviews.each do |review| %>
+    <li class="list-group-item"><%= review.content %>
+    
+      <% if review.rating == 0 %>
+        <strong><%= "No star" %></strong>
+      <% elsif review.rating == 1 %>
+        <i class="fa fa-star"  style="color:green" aria-hidden="true"></i> 
+      <% elsif review.rating == 2 %>
+        <% 2.times do %>
+          <i class="fa fa-star" style="color:green" aria-hidden="true"></i>
+        <% end %>
+      <% elsif review.rating == 3 %>
+        <% 3.times do %>
+          <i class="fa fa-star" style="color:green" aria-hidden="true"></i>
+        <% end %>
+      <% elsif review.rating == 4 %>
+        <% 4.times do %>
+          <i class="fa fa-star" style="color:green" aria-hidden="true"></i>
+        <% end %>
+      <% elsif review.rating == 5 %>
+        <% 5.times do %>
+          <i class="fa fa-star" style="color:green" aria-hidden="true"></i>
+        <% end %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+<p>
+  <%= link_to new_restaurant_review_path(@restaurant) do  %>
+    <i class="fa fa-commenting-o" aria-hidden="true">Leave a Review!</i>
+  <% end%>
+</p>
+<p>
+  <%= link_to restaurants_path do %>
+    <i class="fa fa-reply fa-sm" aria-hidden="true"></i><span class="ml-1">Back to list</span>
+  <% end %>
+</p>
+
+  <%# <i class="fas fa-camera fa-xs"></i>
+  <i class="fas fa-camera fa-sm"></i>
+  <i class="fas fa-camera fa-lg"></i>
+  <i class="fas fa-camera fa-2x"></i>
+  <i class="fas fa-camera fa-3x"></i>
+  <i class="fas fa-camera fa-5x"></i>
+  <i class="fas fa-camera fa-7x"></i>
+  <i class="fas fa-camera fa-10x"></i> %>
+
+  <%# i {
+  margin-right: 10px;
+} %>
